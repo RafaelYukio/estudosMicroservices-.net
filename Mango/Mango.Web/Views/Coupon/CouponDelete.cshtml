@@ -1,0 +1,46 @@
+﻿@model CouponDTO
+
+<form asp-action="CouponDelete">
+    <br />
+    <div class="container w-50 bg-secondary rounded p-4">
+        <h1 class="text-white text-center">Delete Coupon</h1>
+
+        <hr />
+        <div class="row">
+            <input asp-for="CouponId" hidden />
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Coupon Code</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="CouponCode" disabled class="form-control" />
+            </div>
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Discount Amount</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="DiscountAmount" disabled class="form-control" />
+            </div>
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Minimum Amount</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="MinAmount" disabled class="form-control" />
+            </div>
+
+            <div class="w-25"></div>
+
+            <div class="row m-0 w-75 justify-content-center">
+                <div class="col-5 w-35">
+                    <a asp-action="CouponIndex" class="btn-primary btn form-control ">Back to List</a>
+                </div>
+                <div class="col-5 w-35">
+                    <input type="submit" value="Delete" class="btn btn-success form-control" />
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+        </div>
+    </div>
+</form>
