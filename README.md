@@ -15,7 +15,12 @@ https://www.youtube.com/watch?v=Nw4AZs1kLAs
 </br>
 
 ---
+### Histórico branches (em implementação):
 
+Arquitetura utilizada para este projeto:
+<img src="udemy-microservice.png" alt="imagem arquitetura microsserviços"></img>
+
+---
 ### Histórico branches (em implementação):
 
 <details>
