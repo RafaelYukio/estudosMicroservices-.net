@@ -96,8 +96,6 @@ Arquitetura utilizada para este projeto:
 </ul> 
 </details>
 
-</br>
-
 ---
 
 ### Estudos (com links para referência):
@@ -125,6 +123,11 @@ https://www.youtube.com/watch?v=OqCK95AS-YE
 <details>
 <summary>Vídeo: Why should you use Kafka in your microservice applications?</summary>
 https://www.youtube.com/watch?v=cv5vqi5O9bY
+</details>
+
+<details>
+<summary>ASP.NET Razor Pages vs MVC: How Do Razor Pages Fit in Your Toolbox?</summary>
+https://stackify.com/asp-net-razor-pages-vs-mvc/
 </details>
 
 <details>

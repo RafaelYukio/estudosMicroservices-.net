@@ -1,7 +1,9 @@
 ﻿using Mango.Web.Models;
 using Mango.Web.Service.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using static Mango.Web.Utility.StaticDetails;
 
 namespace Mango.Web.Controllers
 {
@@ -12,6 +14,7 @@ namespace Mango.Web.Controllers
         {
             _couponService = couponService;
         }
+
         public async Task<IActionResult> CouponIndex()
         {
             List<CouponDTO>? list = new();
@@ -30,7 +33,8 @@ namespace Mango.Web.Controllers
             return View(list);
         }
 
-        public async Task<IActionResult> CouponCreate()
+        [Authorize(Roles = RoleAdmin)]
+        public IActionResult CouponCreate()
         {
             return View();
         }
@@ -56,6 +60,7 @@ namespace Mango.Web.Controllers
             return View(couponDTO);
         }
 
+        [Authorize(Roles = RoleAdmin)]
         public async Task<IActionResult> CouponDelete(Guid couponId)
         {
             ResponseDTO? response = await _couponService.GetCouponByIdAsync(couponId);
