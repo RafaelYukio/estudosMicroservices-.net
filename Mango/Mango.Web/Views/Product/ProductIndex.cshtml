@@ -33,23 +33,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach (var item in Model)
+				@foreach (var product in Model)
 				{
 					<tr>
 						<td>
-							@item.Name
+							@product.Name
 						</td>
 						<td>
-							@item.CategoryName
+							@product.CategoryName
 						</td>
 						<td>
-							@((item.Price).ToString("c"))
+							@((product.Price).ToString("c"))
 						</td>
 						<td>
-							<a class="btn btn-success" asp-action="ProductEdit" asp-route-productId="@item.ProductId">
+							<a class="btn btn-success" asp-action="ProductEdit" asp-route-productId="@product.ProductId">
 								<i class="bi bi-pencil-square"></i>
 							</a>
-							<a class="btn btn-danger" asp-action="ProductDelete" asp-route-productId="@item.ProductId">
+							<a class="btn btn-danger" asp-action="ProductDelete" asp-route-productId="@product.ProductId">
 								<i class="bi bi-trash"></i>
 							</a>
 						</td>
