@@ -1,0 +1,66 @@
+﻿@model ProductDTO
+
+<form asp-action="ProductCreate">
+    <br />
+    <div class="container w-50 bg-secondary rounded p-4">
+        <h1 class="text-white text-center">Create Product</h1>
+
+        <hr />
+        <div class="row">
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Name</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Price</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Category Name</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Description</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="col-2 w-25">
+                <label class="control-label text-white pt-2">Image URL</label>
+            </div>
+            <div class="col-10 w-75 pb-3">
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="w-25"></div>
+
+            <div class="row m-0 w-75 justify-content-center">
+                <div class="col-5 w-35">
+                    <a asp-action="ProductIndex" class="btn-primary btn form-control ">Back to List</a>
+                </div>
+                <div class="col-5 w-35">
+                    <input type="submit" value="Create" class="btn btn-success form-control" />
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

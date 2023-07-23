@@ -15,6 +15,8 @@ https://www.youtube.com/watch?v=Nw4AZs1kLAs
 </br>
 
 Obs.: cada projeto de serviço seguiu uma estrutura simples, pois o objetivo é o estudo do padrão de microsserviços.
+</br>
+</br>
 
 ---
 ### Histórico branches (em implementação):

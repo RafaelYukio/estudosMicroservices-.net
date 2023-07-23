@@ -4,70 +4,73 @@ using static Mango.Web.Utility.StaticDetails;
 
 namespace Mango.Web.Service
 {
-    public class CouponService : ICouponService
+    public class ProductService : IProductService
     {
         private readonly IBaseService _baseService;
 
-        public CouponService(IBaseService baseService)
+        public ProductService(IBaseService baseService)
         {
             _baseService = baseService;
         }
 
-        public async Task<ResponseDTO?> CreateCouponAsync(CouponDTO couponDTO)
+        public async Task<ResponseDTO?> CreateProductAsync(ProductDTO productDTO)
         {
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.POST,
-                // Podemos passar o objeto direto no Data, pois estamos serializando no método SendAsync
-                Data = couponDTO,
-                Url = CouponAPIBase + "/api/coupon/"
+                Data = productDTO,
+                Url = ProductAPIBase + "/api/product/"
             });
         }
 
-        public async Task<ResponseDTO?> DeleteCouponAsync(Guid id)
+        public async Task<ResponseDTO?> DeleteProductAsync(Guid id)
         {
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.DELETE,
-                Url = CouponAPIBase + "/api/coupon/" + id
+                Url = ProductAPIBase + "/api/product/" + id
             });
         }
 
-        public async Task<ResponseDTO?> GetAllCouponsAsync()
+        public async Task<ResponseDTO?> GetAllProductsAsync()
         {
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.GET,
-                Url = CouponAPIBase + "/api/coupon"
+                Url = ProductAPIBase + "/api/product"
             });
         }
 
-        public async Task<ResponseDTO?> GetCouponByCodeAsync(string couponCode)
+        public async Task<ResponseDTO?> GetProductByNameAsync(string productName)
         {
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.GET,
-                Url = CouponAPIBase + "/api/coupon/GetByCode/" + couponCode
+                Url = ProductAPIBase + "/api/product/GetByName/" + productName
             });
         }
 
-        public async Task<ResponseDTO?> GetCouponByIdAsync(Guid id)
+        public async Task<ResponseDTO?> GetProductByIdAsync(Guid id)
         {
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.GET,
-                Url = CouponAPIBase + "/api/coupon/" + id
+                Url = ProductAPIBase + "/api/product/" + id
             });
         }
 
-        public async Task<ResponseDTO?> UpdateCouponAsync(CouponDTO couponDTO)
+        public Task<ResponseDTO?> GetProductByNamesync(string productName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ResponseDTO?> UpdateProductAsync(ProductDTO productDTO)
         {
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.PUT,
-                // Podemos passar o objeto direto no Data, pois estamos serializando no método SendAsync
-                Data = couponDTO,
-                Url = CouponAPIBase + "/api/coupon/" + couponDTO.CouponId
+                Data = productDTO,
+                Url = ProductAPIBase + "/api/product/" + productDTO.ProductId
             });
         }
     }
