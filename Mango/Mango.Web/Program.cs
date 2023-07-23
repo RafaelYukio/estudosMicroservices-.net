@@ -15,7 +15,7 @@ builder.Services.AddHttpClient();
 // Injeção do Http nos serviços
 builder.Services.AddHttpClient<ICouponService, CouponService>();
 builder.Services.AddHttpClient<IProductService, ProductService>();
-builder.Services.AddHttpClient<IAuthService, AuthService>();
+builder.Services.AddHttpClient<IShoppingCartService, ShoppingCartService>();
 
 // Injeção de dependências:
 builder.Services.AddScoped<IBaseService, BaseService>();
@@ -23,6 +23,7 @@ builder.Services.AddScoped<ICouponService, CouponService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
 // Configuração para realizar o login na aplicação
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -38,6 +39,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 StaticDetails.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
 StaticDetails.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
 StaticDetails.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
+StaticDetails.ShoppingCartAPIBase = builder.Configuration["ServiceUrls:ShoppingCartAPI"];
 
 var app = builder.Build();
 
