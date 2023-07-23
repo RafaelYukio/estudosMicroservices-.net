@@ -23,6 +23,36 @@ Obs.: cada projeto de serviço seguiu uma estrutura simples, pois o objetivo é 
 
 Arquitetura utilizada para este projeto:
 <img src="udemy-microservice.png" alt="imagem arquitetura microsserviços"></img>
+- Linhas contínuas são comunicações síncronas
+  - Exemplo: o ShoppingCartAPI precisa requisitar os detalhes dos Produos para o ProductsAPI, esperar o retorno, para depois enviar as informações para o frontend.
+- Linhas tracejadas são comunicações assíncronas
+  - Exemplo: quando requisitado o serviços de enviar email, no EmailAPI, não é esperado um retorno, apenas é solicitada a ação.
+
+#### Anotações:
+- Como ocorre a autenticação no MVC:
+  1. Usuário faz o cadastro;
+  2. Usuário faz login;
+  3. No processo de login, o token que é retornado na resposta é armazenado em cookie (TokenProvider);
+  4. Nas requisições que necessitam de autenticação, o token é adquirido pelo cookie (TokenProvider) e adicionado no header pelo BaseService (que é onde está implementado todas as requisições HTTP);
+
+</br >
+
+- Como ocorre a autenticação entre serviços (exemplo no ShoppingCartAPI):
+  1. Após receber uma requisição com o token, vinda do projeto MVC, este token é armazenado pelo BackendApiAuthenticationHttpClientHandler;
+  2. Toda requisição feita entre serviços é configurada para que este token seja adicionado.
+
+</br >
+
+- Não confundir o 'async' e 'await' que utilizamos em métodos, com os tipos de comunicações 'async' e 'sync'. Métodos com 'async' e 'await' servem para que a execução do código espere o retorno de algo que está como await, para que então continue. Comunicação 'sync' e 'async' é o que foi explicado abaixo da imagem (no desenho da arquitetura com as linhas contínuas e tracejadas).
+
+</br >
+
+<details>
+<summary>Lógica para implementação do carrinho de compras (ShoppingCart):</summary>
+<img src="udemy-microservice-shoppingcart-logic.png" alt="imagem arquitetura microsserviços"></img>
+</details>
+
+</br >
 
 ---
 ### Histórico branches (em implementação):
@@ -38,28 +68,29 @@ Arquitetura utilizada para este projeto:
 <details>
 <summary>2 - AuthAPI</summary>
 <ul>
-  <li></li>
+    <li>Implementado API para Auth;</li>
+    <li>Implementado autenticação com Token JWT.</li>
 </ul> 
 </details>
 
 <details>
 <summary>3 - ProductAPI</summary>
 <ul>
-  <li></li>
+    <li>Implementado API para Product.</li>
 </ul> 
 </details>
 
 <details>
 <summary>4 - Homepage e Details</summary>
 <ul>
-  <li></li>
+  <li>Implementado view da Homepage com cards de Products e a view de Details para detalhes do produto com botão de adicionar no carrinho.</li>
 </ul> 
 </details>
 
 <details>
 <summary>5 - Shopping Cart</summary>
 <ul>
-  <li></li>
+  <li>Implementado API para ShoppingCart.</li>
 </ul> 
 </details>
 
