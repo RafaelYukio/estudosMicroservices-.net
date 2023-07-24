@@ -21,7 +21,7 @@ namespace Mango.Services.ProductAPI.Data
                 Name = "Samosa",
                 Price = 15,
                 Description = " Quisque vel lacus ac magna, vehicula sagittis ut non lacus.<br/> Vestibulum arcu turpis, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                ImageUrl = "https://placehold.co/603x403",
+                ImageUrl = "/seed_images/Samosa.jpg",
                 CategoryName = "Appetizer"
             });
             modelBuilder.Entity<Product>().HasData(new Product
@@ -30,7 +30,7 @@ namespace Mango.Services.ProductAPI.Data
                 Name = "Paneer Tikka",
                 Price = 13.99M,
                 Description = " Quisque vel lacus ac magna, vehicula sagittis ut non lacus.<br/> Vestibulum arcu turpis, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                ImageUrl = "https://placehold.co/602x402",
+                ImageUrl = "/seed_images/Paneer Tikka.jpg",
                 CategoryName = "Appetizer"
             });
             modelBuilder.Entity<Product>().HasData(new Product
@@ -39,7 +39,7 @@ namespace Mango.Services.ProductAPI.Data
                 Name = "Sweet Pie",
                 Price = 10.99M,
                 Description = " Quisque vel lacus ac magna, vehicula sagittis ut non lacus.<br/> Vestibulum arcu turpis, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                ImageUrl = "https://placehold.co/601x401",
+                ImageUrl = "/seed_images/Sweet Pie.jpg",
                 CategoryName = "Dessert"
             });
             modelBuilder.Entity<Product>().HasData(new Product
@@ -48,7 +48,7 @@ namespace Mango.Services.ProductAPI.Data
                 Name = "Pav Bhaji",
                 Price = 15,
                 Description = " Quisque vel lacus ac magna, vehicula sagittis ut non lacus.<br/> Vestibulum arcu turpis, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                ImageUrl = "https://placehold.co/600x400",
+                ImageUrl = "/seed_images/Pav Bhaji.jpg",
                 CategoryName = "Entree"
             });
         }

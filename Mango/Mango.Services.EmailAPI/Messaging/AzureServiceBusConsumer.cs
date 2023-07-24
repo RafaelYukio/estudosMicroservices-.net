@@ -31,7 +31,6 @@ namespace Mango.Services.EmailAPI.Messaging
             _emailService = emailService;
         }
 
-        // Start e Stop atua como Singleton
         // Start no início da API
         public async Task Start()
         {
