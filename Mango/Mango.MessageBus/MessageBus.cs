@@ -8,7 +8,7 @@ namespace Mango.MessageBus
     public class MessageBus : IMessageBus
     {
         // Geralmente, quando temos service bus em cada serviço, a connectionString é salva no appsettings
-        private string connectionString = "Endpoint=sb://estudosmicroservices.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=3wWoeWlH37IpSFHE31BEXijfvoFWBCuk5+ASbJMHxbE=";
+        private string connectionString = "";
 
         public async Task PublishMessage(object message, string topic_queue_name)
         {
