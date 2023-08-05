@@ -10,16 +10,48 @@ namespace Mango.Web.Controllers
     public class ShoppingCartController : Controller
     {
         private readonly IShoppingCartService _shoppingCartService;
+        private readonly IOrderService _orderService;
 
-        public ShoppingCartController(IShoppingCartService shoppingCartService)
+        public ShoppingCartController(IShoppingCartService shoppingCartService, IOrderService orderService)
         {
             _shoppingCartService = shoppingCartService;
+            _orderService = orderService;
         }
 
         [Authorize]
         public async Task<IActionResult> CartIndex()
         {
             return View(await LoadCartDTOBasedOnLoggedUser());
+        }
+
+		[Authorize]
+		public async Task<IActionResult> Checkout()
+		{
+			return View(await LoadCartDTOBasedOnLoggedUser());
+		}
+
+        [Authorize]
+        [HttpPost]
+        [ActionName("Checkout")]
+        public async Task<IActionResult> Checkout(CartDTO cartDTO)
+        {
+            // Já estamos recebendo o CartDTO por parâmetros, porém é melhor pegar o mais atualizado pelo método:
+            CartDTO cart = await LoadCartDTOBasedOnLoggedUser();
+
+            // Os campos no front são aberto para modificar:
+            cart.CartHeader.Phone = cartDTO.CartHeader.Phone;
+            cart.CartHeader.Email = cartDTO.CartHeader.Email;
+            cart.CartHeader.Name = cartDTO.CartHeader.Name;
+
+            var response = await _orderService.CreateOrderAsync(cart);
+            OrderHeaderDTO orderHeaderDTO = JsonConvert.DeserializeObject<OrderHeaderDTO>(Convert.ToString(response.Result));
+
+            if(response != null && response.IsSuccess)
+            {
+
+            }
+
+            return View();
         }
 
         public async Task<IActionResult> Remove(Guid cartDetailsId)
